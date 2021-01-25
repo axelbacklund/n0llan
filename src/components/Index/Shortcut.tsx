@@ -2,12 +2,14 @@ import { Link } from 'gatsby'
 import React from 'react'
 import { breakpointsDown, Color, colors, fonts, spacings } from '../../styles/constants'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
 interface ShortcutProps {
   name: string
   link: string
   icon: string
   color: Color
+  delay: number
 }
 
 interface WrapperProps {
@@ -40,13 +42,25 @@ const Name = styled.div`
   font-family: ${fonts.termina};
 `
 
-const Shortcut: React.FC<ShortcutProps> = ({ name, link, icon, color }) => (
+const Shortcut: React.FC<ShortcutProps> = ({
+  name,
+  link,
+  icon,
+  color,
+  delay,
+}) => (
   <ShortcutMain>
     <ShortcutLink to={link}>
-      <ShortcutWrapper color={color}>
-        <img src={icon} />
-        <Name>{name}</Name>
-      </ShortcutWrapper>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: delay }}
+      >
+        <ShortcutWrapper color={color}>
+          <img src={icon} />
+          <Name>{name}</Name>
+        </ShortcutWrapper>
+      </motion.div>
     </ShortcutLink>
   </ShortcutMain>
 )

@@ -1,7 +1,6 @@
 import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
-import { motion } from 'framer-motion'
 import { colors, fonts, spacings } from '../styles/constants'
 import { Location } from '@reach/router'
 
@@ -19,7 +18,7 @@ const HeaderWrapper = styled.div`
   }
 `
 
-const Name = styled(motion.div)`
+const Name = styled.div`
   font-family: ${fonts.termina};
   color: ${colors.porter};
   font-size: 1.5rem;
@@ -39,7 +38,7 @@ interface ActiveProps {
   active: boolean
 }
 
-const MenuItem = styled(motion.li)<ActiveProps>`
+const MenuItem = styled.li<ActiveProps>`
   font-size: 1rem;
   margin: 0 1.5rem;
   position: relative;
@@ -75,24 +74,15 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ links, name }) => (
   <HeaderWrapper>
     <Link to="/">
-      <Name
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3 }}
-      >
-        {name}
-      </Name>
+      <Name>{name}</Name>
     </Link>
     <MenuLinks>
       <Location>
         {(locationProps) => (
           <ul>
             {links &&
-              links.map((link, index) => (
+              links.map((link) => (
                 <MenuItem
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.4 + index * 0.05 }}
                   key={link.link}
                   active={locationProps.location.pathname === link.link}
                 >

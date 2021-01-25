@@ -13,6 +13,7 @@ import OSAIcon from '../images/icons/OSAIcon.svg'
 import { breakpointsDown } from '../styles/constants'
 import News from '../components/Index/News'
 import PhotoShowcase from '../components/PhotoShowcase'
+import { motion } from 'framer-motion'
 
 const ShortcutWrapper = styled.div`
   display: flex;
@@ -34,11 +35,29 @@ const IndexPage: React.FC = () => (
     <Hero />
     <Margin>
       <ShortcutWrapper>
-        <Shortcut name="Schema" link="/schema" icon={SIcon} color="darkBlue" />
+        <Shortcut
+          name="Schema"
+          link="/schema"
+          icon={SIcon}
+          color="darkBlue"
+          delay={0.5}
+        />
         <Divider />
-        <Shortcut name="Media" link="/media" icon={MediaIcon} color="porter" />
+        <Shortcut
+          name="Media"
+          link="/media"
+          icon={MediaIcon}
+          color="porter"
+          delay={0.6}
+        />
         <Divider />
-        <Shortcut name="OSA" link="/osa" icon={OSAIcon} color="darkRed" />
+        <Shortcut
+          name="OSA"
+          link="/osa"
+          icon={OSAIcon}
+          color="darkRed"
+          delay={0.7}
+        />
       </ShortcutWrapper>
       <News />
     </Margin>

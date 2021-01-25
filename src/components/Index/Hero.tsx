@@ -3,6 +3,7 @@ import BackgroundImage from 'gatsby-background-image'
 import { useStaticQuery, graphql } from 'gatsby'
 import { colors, fonts, spacings } from '../../styles/constants'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
 const HeroWrapper = styled.div`
   background-color: ${colors.gray};
@@ -50,9 +51,15 @@ const Hero: React.FC = () => {
 
   return (
     <HeroWrapper>
-      <HeroBackground fluid={imageData} backgroundColor={`#040e18`}>
-        <HeroText>Mottagningen 2021</HeroText>
-      </HeroBackground>
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3 }}
+      >
+        <HeroBackground fluid={imageData} backgroundColor={`#040e18`}>
+          <HeroText>Mottagningen 2021</HeroText>
+        </HeroBackground>
+      </motion.div>
     </HeroWrapper>
   )
 }
