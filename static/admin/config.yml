@@ -42,3 +42,15 @@ collections:
       - { label: 'Titel', name: 'title', widget: 'string' }
       - { label: 'Länk', name: 'link', widget: 'string' }
       - { label: 'Gasquedatum', name: 'date', widget: 'datetime' }
+  - name: 'msg'
+    label: 'MSG'
+    identifier_field: name
+    folder: 'content/msg'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Namn', name: 'name', widget: 'string' }
+      - { label: 'Position', name: 'position', widget: 'string' }
+      - { label: 'Telefonnr.', name: 'phone', widget: 'string' }
+      - { label: 'Sorteringsordning', name: 'order', widget: 'number' }
+      - {label: 'Bild', name: 'image', widget: 'image'}

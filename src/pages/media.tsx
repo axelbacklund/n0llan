@@ -57,7 +57,7 @@ export const query = graphql`
       }
     }
     mediaItems: allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
+      sort: { order: ASC, fields: [frontmatter___date] }
       filter: { fields: { collection: { eq: "media" } } }
       limit: 10
     ) {
