@@ -54,3 +54,25 @@ collections:
       - { label: 'Telefonnr.', name: 'phone', widget: 'string' }
       - { label: 'Sorteringsordning', name: 'order', widget: 'number' }
       - {label: 'Bild', name: 'image', widget: 'image'}
+  - name: 'sponsors'
+    label: 'Företag'
+    identifier_field: name
+    folder: 'content/sponsors'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Namn', name: 'name', widget: 'string' }
+      - { label: 'Logotyp, helst genomskinlig', name: 'image', widget: 'image' }
+      - { label: 'Länk till företagshemsida', name: 'link', widget: 'string' }
+      - { label: 'Sorteringsordning', name: 'order', widget: 'number' }
+  - name: 'pages'
+    label: 'Sidor'
+    folder: 'content/pages'
+    create: false
+    identifier_field: slug
+    slug: '{{fields.slug}}'
+    fields:
+      - { label: 'Länk', name: 'slug', widget: 'string' }
+      - { label: 'Publiceringsdatum', name: 'date', widget: 'datetime' }
+      - { label: 'Titel', name: 'title', widget: 'string' }
+      - { label: 'Text', name: 'body', widget: 'markdown' }

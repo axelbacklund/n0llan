@@ -54,9 +54,7 @@ const ContactPage: React.FC<ContactProps> = ({
 
 export const query = graphql`
   query Contact {
-    pageContent: markdownRemark(
-      frontmatter: { slug: { eq: "/kontakt" } }
-    ) {
+    pageContent: markdownRemark(frontmatter: { slug: { eq: "/kontakt" } }) {
       html
       frontmatter {
         title

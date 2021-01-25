@@ -1,7 +1,12 @@
 import React from 'react'
 import BackgroundImage from 'gatsby-background-image'
 import { useStaticQuery, graphql } from 'gatsby'
-import { breakpointsDown, colors, fonts, spacings } from '../../styles/constants'
+import {
+  breakpointsDown,
+  colors,
+  fonts,
+  spacings,
+} from '../../styles/constants'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
