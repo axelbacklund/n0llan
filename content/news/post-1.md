@@ -1,5 +1,4 @@
 ---
-slug: "/nyheter/first-post"
 date: "2021-01-24"
 title: "Välkommen n0llan!"
 description: "Vi vill hälsa dig välkommen till Sektionen för Industriell ekonomi på KTH! Den här hemsidan är till för att samla all information du kan tänkas behöva för Mottagningen..."

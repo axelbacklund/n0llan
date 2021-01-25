@@ -27,12 +27,11 @@ const Journal: React.FC<NewsProps> = ({ data: { markdownRemark } }) => (
 )
 
 export const query = graphql`
-  query News($slug: String!) {
-    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+  query News($id: String!) {
+    markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
         date(formatString: "DD MMMM YYYY", locale: "sv")
-        slug
         title
       }
     }

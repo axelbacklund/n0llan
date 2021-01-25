@@ -1,3 +1,5 @@
+const { createFilePath } = require('gatsby-source-filesystem')
+
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
   const blogPostTemplate = require.resolve(`./src/templates/news.tsx`)
@@ -10,7 +12,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       ) {
         edges {
           node {
-            frontmatter {
+            id
+            fields {
               slug
             }
           }
@@ -25,10 +28,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
-      path: node.frontmatter.slug,
+      path: node.fields.slug,
       component: blogPostTemplate,
       context: {
-        slug: node.frontmatter.slug,
+        id: node.id,
       },
     })
   })
@@ -40,10 +43,16 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   if (node.internal.type === `MarkdownRemark`) {
     const parent = getNode(node.parent)
     let collection = parent.sourceInstanceName
+    let path = '/nyheter' + createFilePath({ node, getNode })
     createNodeField({
       node,
       name: 'collection',
       value: collection,
+    })
+    createNodeField({
+      name: 'slug',
+      node,
+      value: path,
     })
   }
 }

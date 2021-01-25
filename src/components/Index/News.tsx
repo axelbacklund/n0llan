@@ -24,9 +24,11 @@ const News: React.FC = () => {
         ) {
           edges {
             node {
+              fields {
+                slug
+              }
               frontmatter {
                 title
-                slug
                 description
                 date(formatString: "DD MMMM YYYY", locale: "sv")
               }
@@ -46,7 +48,7 @@ const News: React.FC = () => {
         <ArticlePreview
           key={item.node.frontmatter?.slug}
           title={item.node.frontmatter?.title ?? ''}
-          slug={item.node.frontmatter?.slug ?? ''}
+          slug={item.node.fields?.slug ?? ''}
           description={item.node.frontmatter?.description ?? ''}
           date={item.node.frontmatter?.date ?? ''}
         />

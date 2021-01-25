@@ -10,7 +10,7 @@ collections:
     label: 'Nyheter'
     folder: 'content/news'
     create: true
-    slug: 'nyheter/{{month}}-{{day}}-{{slug}}'
+    slug: '{{month}}-{{day}}-{{slug}}'
     fields:
       - { label: 'Titel', name: 'title', widget: 'string' }
       - { label: 'Publiceringsdatum', name: 'date', widget: 'datetime' }
