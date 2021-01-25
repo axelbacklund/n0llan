@@ -13,7 +13,7 @@ interface OsaProps {
 }
 
 const OsaPage: React.FC<OsaProps> = ({
-  data: { titleBackground, osaItems },
+  data: { titleBackground, osaItems, pageContent },
 }) => (
   <Layout>
     <SEO title="OSA" />
@@ -22,17 +22,10 @@ const OsaPage: React.FC<OsaProps> = ({
     )}
     <Margin>
       <MaxWidth>
-        <h3>Hej n0llan!</h3>
-        <p>
-          På denna sida kommer det att komma upp länkar till formulären där ni
-          OSAr till Mottagningens sittningar. OSAn stänger 13:00 dagen innan
-          sittningen om inget annat kommuniceras, men Festgruppen hälsar att de
-          gärna vill att ni OSAr så snart ni kan för att underlätta deras
-          planering – så OSA direkt vetja! Betalningar för sittningarna görs via
-          sektionens officiella hemsida iare.one genom kortbetalning. Blir något
-          fel i din OSA går det bra att kontakta ED Alexandra Munthe Nilsson på
-          073-041 13 84.
-        </p>
+        <h3>{pageContent?.frontmatter?.title}</h3>
+        {pageContent && pageContent.html && (
+          <div dangerouslySetInnerHTML={{ __html: pageContent.html }} />
+        )}
         <br />
         {osaItems.edges.map((item) => (
           <LargeLink
@@ -55,6 +48,12 @@ export const query = graphql`
         fluid(maxWidth: 1920, quality: 90) {
           ...GatsbyImageSharpFluid
         }
+      }
+    }
+    pageContent: markdownRemark(frontmatter: { slug: { eq: "/osa" } }) {
+      html
+      frontmatter {
+        title
       }
     }
     osaItems: allMarkdownRemark(

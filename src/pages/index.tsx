@@ -13,7 +13,6 @@ import OSAIcon from '../images/icons/OSAIcon.svg'
 import { breakpointsDown } from '../styles/constants'
 import News from '../components/Index/News'
 import PhotoShowcase from '../components/PhotoShowcase'
-import { motion } from 'framer-motion'
 
 const ShortcutWrapper = styled.div`
   display: flex;

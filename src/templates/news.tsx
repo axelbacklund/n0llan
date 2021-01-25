@@ -18,10 +18,7 @@ const Journal: React.FC<NewsProps> = ({ data: { markdownRemark } }) => (
         <h1>{markdownRemark?.frontmatter?.title}</h1>
         <h3>{markdownRemark?.frontmatter?.date}</h3>
         {markdownRemark && markdownRemark.html && (
-          <div
-            className="blog-post-content"
-            dangerouslySetInnerHTML={{ __html: markdownRemark.html }}
-          />
+          <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
         )}
       </MaxWidth>
     </Margin>

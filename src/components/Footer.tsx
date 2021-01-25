@@ -24,7 +24,9 @@ const Footer: React.FC = () => (
   <FooterWrapper>
     <h3>Mottagningen</h3>
     <h3>Industriell ekonomi KTH</h3>
-    <p>&copy; 2021, Sektionen för Industriell Ekonomi KTH</p>
+    <p>
+      &copy; {new Date().getFullYear()}, Sektionen för Industriell Ekonomi KTH
+    </p>
   </FooterWrapper>
 )
 

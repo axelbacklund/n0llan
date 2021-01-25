@@ -20,26 +20,19 @@ const MSGWrapper = styled.div`
   margin: 1.5rem 0 3rem 0;
 `
 
-const ContactPage: React.FC<ContactProps> = ({ data: { msg } }) => (
+const ContactPage: React.FC<ContactProps> = ({
+  data: { msg, pageContent },
+}) => (
   <Layout>
     <SEO title="Kontakt" />
     <Margin>
       <MaxWidth>
         <h1>Kontakt</h1>
         <br />
-        <h3>Bra att ha</h3>
-        <p>
-          Natt-telefon: 073-052 99 54
-          <br />
-          Larmnummer: 08-790 77 00
-          <br />
-          Väktare på campus: 08-790 99 00
-          <br />
-          <br />
-          n0llan kontaktar i första hand sina Faddrar eller C-Fadder Hugo vid
-          frågor. För frågor om foton eller borttagning av bilder: kontakta
-          C-Foci Gustav.
-        </p>
+        <h3>{pageContent?.frontmatter?.title}</h3>
+        {pageContent && pageContent.html && (
+          <div dangerouslySetInnerHTML={{ __html: pageContent.html }} />
+        )}
         <br />
       </MaxWidth>
       <h2>MSG</h2>
@@ -61,6 +54,14 @@ const ContactPage: React.FC<ContactProps> = ({ data: { msg } }) => (
 
 export const query = graphql`
   query Contact {
+    pageContent: markdownRemark(
+      frontmatter: { slug: { eq: "/kontakt" } }
+    ) {
+      html
+      frontmatter {
+        title
+      }
+    }
     msg: allMarkdownRemark(
       sort: { order: ASC, fields: [frontmatter___order] }
       filter: { fields: { collection: { eq: "msg" } } }

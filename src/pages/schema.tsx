@@ -1,3 +1,4 @@
+import { graphql } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -12,24 +13,33 @@ const ScheduleWrapper = styled.div`
   width: 100%;
 `
 
-const SchemaPage: React.FC = () => (
+interface SchemaProps {
+  data: GatsbyTypes.SchemaQuery
+}
+
+const SchemaPage: React.FC<SchemaProps> = ({ data: { pageContent } }) => (
   <Layout>
     <SEO title="Schema" />
     <Margin>
       <MaxWidth>
         <h1>Schema</h1>
         <ScheduleWrapper>
-          <iframe
-            src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Europe%2FStockholm&amp;src=dmx1aWwyMGpmcjFmM2ltbDF1cDZlM3MyY2tAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%237986CB"
-            style={{ border: 'none', width: '100%' }}
-            height="600"
-            scrolling="no"
-          ></iframe>
+          {pageContent && pageContent.html && (
+            <div dangerouslySetInnerHTML={{ __html: pageContent.html }} />
+          )}
         </ScheduleWrapper>
       </MaxWidth>
     </Margin>
     <PhotoShowcase />
   </Layout>
 )
+
+export const query = graphql`
+  query Schema {
+    pageContent: markdownRemark(frontmatter: { slug: { eq: "/schema" } }) {
+      html
+    }
+  }
+`
 
 export default SchemaPage

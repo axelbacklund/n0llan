@@ -13,7 +13,7 @@ interface MediaProps {
 }
 
 const MediaPage: React.FC<MediaProps> = ({
-  data: { titleBackground, mediaItems },
+  data: { titleBackground, mediaItems, pageContent },
 }) => (
   <Layout>
     <SEO title="Media" />
@@ -22,12 +22,10 @@ const MediaPage: React.FC<MediaProps> = ({
     )}
     <Margin>
       <MaxWidth>
-        <h3>Hej n0llan!</h3>
-        <p>
-          Här kommer Foci kontinuerligt att ladda upp foton från mottagningen!
-          Så se till att håll er uppdaterade! Vid önskan om att få en bild
-          borttagen: kontakta C-Foci Gustav Granlund, 070-569 42 52
-        </p>
+        <h3>{pageContent?.frontmatter?.title}</h3>
+        {pageContent && pageContent.html && (
+          <div dangerouslySetInnerHTML={{ __html: pageContent.html }} />
+        )}
         <br />
         {mediaItems.edges.map((item) => (
           <LargeLink
@@ -50,6 +48,12 @@ export const query = graphql`
         fluid(maxWidth: 1920) {
           ...GatsbyImageSharpFluid
         }
+      }
+    }
+    pageContent: markdownRemark(frontmatter: { slug: { eq: "/media" } }) {
+      html
+      frontmatter {
+        title
       }
     }
     mediaItems: allMarkdownRemark(

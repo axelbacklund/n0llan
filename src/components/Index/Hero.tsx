@@ -78,7 +78,7 @@ const Hero: React.FC = () => {
         transition={{ delay: 0.3 }}
       >
         <HeroBackground fluid={imageData} backgroundColor={`#040e18`}>
-          <HeroText>Mottagningen 2021</HeroText>
+          <HeroText>Mottagningen {new Date().getFullYear()}</HeroText>
         </HeroBackground>
       </motion.div>
     </HeroWrapper>
