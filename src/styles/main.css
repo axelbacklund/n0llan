@@ -1,0 +1,86 @@
+@font-face {
+    font-family: 'Souvenir';
+    src: url('../../static/fonts/Souvenir/SouvenirStd-Light.woff2') format('woff2'),
+         url('../../static/fonts/Souvenir/SouvenirStd-Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Souvenir';
+    src: url('../../static/fonts/Souvenir/SouvenirStd-LightItalic.woff2') format('woff2'),
+         url('../../static/fonts/Souvenir/SouvenirStd-LightItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Termina';
+    src: url('../../static/fonts/Termina/Termina-Regular.woff2') format('woff2'),
+         url('../../static/fonts/Termina/Termina-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: "Karla", sans-serif;
+}
+
+a {
+    color: inherit;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 4rem;
+    font-family: 'Souvenir', serif;
+    font-weight: normal;
+    margin: 0;
+}
+
+h2 {
+    font-size: 2rem;
+    font-family: 'Souvenir', serif;
+    font-weight: normal;
+    margin: 0;
+}
+
+h3 {
+    font-size: 1rem;
+    font-family: 'Termina', sans-serif;
+    letter-spacing: 1px;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: #785B42;
+    margin: 0;
+}
+
+h4 {
+    font-size: 1.6rem;
+    font-family: 'Souvenir', serif;
+    font-weight: normal;
+}
+
+p {
+    line-height: 135%;
+}
+
+@media (max-width: 740px) {
+    h1 {
+        font-size: 3rem;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    h3 {
+        font-size: 1rem;
+    }
+    p {
+        font-size: 0.8rem;
+    }
+}
