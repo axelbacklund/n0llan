@@ -16,3 +16,29 @@ collections:
       - { label: 'Publiceringsdatum', name: 'date', widget: 'datetime' }
       - { label: 'Kort beskrivning', name: 'description', widget: 'string' }
       - { label: 'Text', name: 'body', widget: 'markdown' }
+  - name: 'info-links'
+    label: 'Infolänkar'
+    folder: 'content/info-links'
+    create: true
+    slug: '{{month}}-{{day}}-{{slug}}'
+    fields:
+      - { label: 'Titel', name: 'title', widget: 'string' }
+      - { label: 'Länk', name: 'link', widget: 'string' }
+  - name: 'media'
+    label: 'Media'
+    folder: 'content/media'
+    create: true
+    slug: '{{month}}-{{day}}-{{slug}}'
+    fields:
+      - { label: 'Titel', name: 'title', widget: 'string' }
+      - { label: 'Länk', name: 'link', widget: 'string' }
+      - { label: 'Publiceringsdatum', name: 'date', widget: 'datetime' }
+  - name: 'osa'
+    label: 'OSA'
+    folder: 'content/osa'
+    create: true
+    slug: '{{month}}-{{day}}-{{slug}}'
+    fields:
+      - { label: 'Titel', name: 'title', widget: 'string' }
+      - { label: 'Länk', name: 'link', widget: 'string' }
+      - { label: 'Gasquedatum', name: 'date', widget: 'datetime' }

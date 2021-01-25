@@ -28,6 +28,7 @@ const StyledLink = styled(Link)`
 
 const MainWrapper = styled.div`
   max-width: 65rem;
+  margin-bottom: 1rem;
 `
 
 interface ArticlePreviewProps {
