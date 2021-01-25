@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { colors, spacings } from '../../styles/constants'
+import { breakpointsDown, colors, spacings } from '../../styles/constants'
 
 interface PersonProps {
   name: string
@@ -13,12 +13,20 @@ const PersonWrapper = styled.div`
   width: 18rem;
   margin: 0 1rem 1rem 0;
   background-color: ${colors.gray};
+
+  @media ${breakpointsDown.desktop} {
+    width: 12rem;
+  }
 `
 
 const PersonImage = styled.img`
   object-fit: cover;
   height: 22rem;
   width: 100%;
+
+  @media ${breakpointsDown.desktop} {
+    height: 16rem;
+  }
 `
 
 const InfoWrapper = styled.div`
@@ -31,6 +39,11 @@ const InfoWrapper = styled.div`
   }
   h3 {
     margin-bottom: 0.2rem;
+  }
+
+  @media ${breakpointsDown.desktop} {
+    padding: 1rem ${spacings.horizontalMobile} 1.2rem
+      ${spacings.horizontalMobile};
   }
 `
 

@@ -1,12 +1,17 @@
 import React from 'react'
 import BackgroundImage from 'gatsby-background-image'
-import { colors, spacings } from '../styles/constants'
+import { breakpointsDown, colors, spacings } from '../styles/constants'
 import styled from 'styled-components'
 
 const HeroWrapper = styled.div`
   background-color: ${colors.gray};
   padding: ${spacings.horizontal};
   padding-top: 0;
+
+  @media ${breakpointsDown.desktop} {
+    padding: ${spacings.horizontalMobile};
+    padding-top: 0;
+  }
 `
 
 const HeroBackground = styled(BackgroundImage)`
@@ -14,6 +19,10 @@ const HeroBackground = styled(BackgroundImage)`
   display: flex;
   flex-direction: column;
   padding: ${spacings.horizontal};
+
+  @media ${breakpointsDown.desktop} {
+    padding: ${spacings.horizontalMobile};
+  }
 `
 
 const TitleText = styled.h1`

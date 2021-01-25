@@ -2,22 +2,34 @@ import React from 'react'
 import BackgroundImage from 'gatsby-background-image'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
-import { colors, spacings } from '../styles/constants'
+import { breakpointsDown, colors, spacings } from '../styles/constants'
 
 const ImageWrapper = styled.div`
   background-color: ${colors.gray};
   padding: ${spacings.horizontal};
   display: flex;
   flex-direction: row;
+
+  @media ${breakpointsDown.desktop} {
+    padding: ${spacings.horizontalMobile};
+  }
+
+  @media ${breakpointsDown.tablet} {
+    flex-direction: column;
+  }
 `
 
 const ShowcaseImage = styled(BackgroundImage)`
   width: 100%;
   height: 30rem;
+
+  @media ${breakpointsDown.tablet} {
+    height: 20rem;
+  }
 `
 
 const Divider = styled.div`
-  height: ${spacings.horizontal};
+  height: ${spacings.horizontalMobile};
   width: ${spacings.horizontal};
 `
 

@@ -10,6 +10,7 @@ const colors: Record<Color, string> = {
 const spacings = {
   vertical: '3.5rem',
   horizontal: '2rem',
+  horizontalMobile: '1rem',
 }
 
 const breakpointsDown = {

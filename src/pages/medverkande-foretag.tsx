@@ -6,7 +6,7 @@ import Layout from '../components/layout'
 import Margin from '../components/Margin'
 import PhotoShowcase from '../components/PhotoShowcase'
 import SEO from '../components/seo'
-import { colors, spacings } from '../styles/constants'
+import { breakpointsDown, colors, spacings } from '../styles/constants'
 
 const CompanyWrapper = styled.div`
   display: flex;
@@ -14,12 +14,27 @@ const CompanyWrapper = styled.div`
   flex-wrap: wrap;
   margin: 0 calc(-1 * ${spacings.horizontal} / 2);
   margin-top: 1rem;
+
+  @media ${breakpointsDown.desktop} {
+    margin: 0 calc(-1 * ${spacings.horizontalMobile} / 2);
+    margin-top: 1rem;
+  }
 `
 
 const Company = styled.div`
   width: 33%;
   height: 20rem;
   padding: calc(${spacings.horizontal} / 2);
+
+  @media ${breakpointsDown.desktop} {
+    padding: calc(${spacings.horizontalMobile} / 2);
+    height: 14rem;
+  }
+
+  @media ${breakpointsDown.tablet} {
+    width: 50%;
+    height: 12rem;
+  }
 `
 
 const CompanyInside = styled.div`

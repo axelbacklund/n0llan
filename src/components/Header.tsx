@@ -1,8 +1,14 @@
 import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
-import { colors, fonts, spacings } from '../styles/constants'
+import { breakpointsDown, colors, fonts, spacings } from '../styles/constants'
 import { Location } from '@reach/router'
+import Hamburger from './Menu/Hamburger'
+import MobileMenu from './Menu/MobileMenu'
+
+const MainWrapper = styled.div`
+  width: 100%;
+`
 
 const HeaderWrapper = styled.div`
   width: 100%;
@@ -15,6 +21,10 @@ const HeaderWrapper = styled.div`
 
   a {
     text-decoration: none;
+  }
+
+  @media ${breakpointsDown.desktop} {
+    padding: 1rem ${spacings.horizontalMobile};
   }
 `
 
@@ -31,6 +41,9 @@ const MenuLinks = styled.nav`
     flex-direction: row;
     padding: 0;
     margin: 0;
+  }
+  @media ${breakpointsDown.desktop} {
+    display: none;
   }
 `
 
@@ -61,7 +74,16 @@ const MenuItem = styled.li<ActiveProps>`
   }
 `
 
-type LinkObj = {
+const HamWrapper = styled.span`
+  display: none;
+  @media ${breakpointsDown.desktop} {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+  }
+`
+
+export type LinkObj = {
   name?: string
   link?: string
 }
@@ -71,29 +93,39 @@ interface HeaderProps {
   name?: string
 }
 
-const Header: React.FC<HeaderProps> = ({ links, name }) => (
-  <HeaderWrapper>
-    <Link to="/">
-      <Name>{name}</Name>
-    </Link>
-    <MenuLinks>
-      <Location>
-        {(locationProps) => (
-          <ul>
-            {links &&
-              links.map((link) => (
-                <MenuItem
-                  key={link.link}
-                  active={locationProps.location.pathname === link.link}
-                >
-                  <Link to={link.link ?? '/'}>{link.name}</Link>
-                </MenuItem>
-              ))}
-          </ul>
-        )}
-      </Location>
-    </MenuLinks>
-  </HeaderWrapper>
-)
+const Header: React.FC<HeaderProps> = ({ links, name }) => {
+  const [isOpen, setIsOpen] = React.useState(false)
+
+  return (
+    <MainWrapper>
+      <HeaderWrapper>
+        <Link to="/">
+          <Name>{name}</Name>
+        </Link>
+        <HamWrapper onClick={() => setIsOpen(!isOpen)}>
+          <Hamburger isOpen={isOpen} />
+        </HamWrapper>
+        <MenuLinks>
+          <Location>
+            {(locationProps) => (
+              <ul>
+                {links &&
+                  links.map((link) => (
+                    <MenuItem
+                      key={link.link}
+                      active={locationProps.location.pathname === link.link}
+                    >
+                      <Link to={link.link ?? '/'}>{link.name}</Link>
+                    </MenuItem>
+                  ))}
+              </ul>
+            )}
+          </Location>
+        </MenuLinks>
+      </HeaderWrapper>
+      {links && <MobileMenu links={links} isOpen={isOpen} /> }
+    </MainWrapper>
+  )
+}
 
 export default Header

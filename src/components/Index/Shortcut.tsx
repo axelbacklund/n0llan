@@ -34,6 +34,14 @@ const ShortcutWrapper = styled.div<WrapperProps>`
   align-items: center;
   justify-content: center;
   height: 7rem;
+
+  @media ${breakpointsDown.tablet} {
+    height: 5.8rem;
+
+    img {
+      height: 40%;
+    }
+  }
 `
 
 const Name = styled.div`
