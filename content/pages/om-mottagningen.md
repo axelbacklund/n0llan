@@ -1,9 +1,9 @@
 ---
-slug: "/om-mottagningen"
-date: "2021-01-24"
-title: "Välkommen till Sektionen för Industriell ekonomi och mottagningen 2021!"
+slug: /om-mottagningen
+date: 2021-01-24
+title: Välkommen till Sektionen för Industriell ekonomi och mottagningen 2024!
 ---
-Det är nu det börjar! Sektionen har ett sprudlande studentliv och under våren arbetar 150 engagerade studenter för att på bästa sätt ta emot en ny årgång med öppna armar. För att ni nyantagna ska få lära känna er klass och få en så bra start som möjligt på er tid på KTH börjar ert äventyr med Mottagningen!
+Det är nu det börjar!!! Sektionen har ett sprudlande studentliv och under våren arbetar 150 engagerade studenter för att på bästa sätt ta emot en ny årgång med öppna armar. För att ni nyantagna ska få lära känna er klass och få en så bra start som möjligt på er tid på KTH börjar ert äventyr med Mottagningen!
 
 Det har inte gått att undgå att 2020 varit ett väldigt speciellt år, större delen av vår tillvaro har präglats av covid-19 eller corona. Årets Mottagning kommer likväl påverkas av corona, här kommer en beskrivning på de åtgärder vi vidtar för att minska risken av smittspridning under våra event. 
 
